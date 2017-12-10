@@ -16,11 +16,11 @@ This installs the NodeJS module globally in `/usr/local/lib/node_modules/neeo-ma
     
 or:
  
-`node /usr/local/lib/node_modules/neeo-mac-volume-controller/index.js`
+`node /usr/local/lib/node_modules/neeo-mac-volume-controller/index.js 6336`
 
 or: 
 
-`node neeo-mac-volume-controller`
+`node neeo-mac-volume-controller 6336`
 
 ### Installation
 
@@ -36,7 +36,7 @@ Usage of the Mac's LaunchAgent is recommended to keep the NodeJS server running.
 	<key>ProgramArguments</key>
 	<array>
 		<string>/usr/local/bin/node</string>
-		<string>/usr/local/lib/node_modules/neeo-mac-volume-controller/index.js</string>
+		<string>/usr/local/lib/node_modules/neeo-mac-volume-controller/index.js 6336</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>
@@ -44,4 +44,4 @@ Usage of the Mac's LaunchAgent is recommended to keep the NodeJS server running.
 </plist>
 ```
 
-With every reboot or new login the NodeJS server will start the `neeo-mac-volume-controller` application
+With every reboot or new login the NodeJS server will start the `neeo-mac-volume-controller` application on port 6336. Increment the port number if you have other NEOO modules running.
