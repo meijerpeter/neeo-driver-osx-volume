@@ -6,25 +6,25 @@ Controls the volume of an Apple Mac via the NEEO remote controller
 1. Install NodeJS
 2. Open Terminal and then:
 
-`npm install -g meijerpeter/neeo-mac-volume-controller`
-    
-This installs the NodeJS module globally in `/usr/local/lib/node_modules/neeo-mac-volume-controller/` on your Mac.
+`npm install -g meijerpeter/neeo-osx-volume-controller`
+
+This installs the NodeJS module globally in `/usr/local/lib/node_modules/neeo-osx-volume-controller/` on your Mac.
 
 3. To run the application, type:
 
 `npm run start`
-    
+
 or:
- 
-`node /usr/local/lib/node_modules/neeo-mac-volume-controller/index.js 6336`
 
-or: 
+`node /usr/local/lib/node_modules/neeo-osx-volume-controller/index.js 6336`
 
-`node neeo-mac-volume-controller 6336`
+or:
+
+`node neeo-osx-volume-controller 6336`
 
 ### Installation
 
-Usage of the Mac's LaunchAgent is recommended to keep the NodeJS server running. Create the following file in a text editor of choice and place it in `~/Library/LaunchAgents` and name it: `com.meijerpeter.neeomacvolumecontroller.plist`. 
+Usage of the Mac's LaunchAgent is recommended to keep the NodeJS server running. Create the following file in a text editor of choice and place it in `~/Library/LaunchAgents` and name it: `com.meijerpeter.neeovolumecontroller.plist`.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -36,7 +36,8 @@ Usage of the Mac's LaunchAgent is recommended to keep the NodeJS server running.
 	<key>ProgramArguments</key>
 	<array>
 		<string>/usr/local/bin/node</string>
-		<string>/usr/local/lib/node_modules/neeo-mac-volume-controller/index.js 6336</string>
+		<string>/usr/local/lib/node_modules/neeo-osx-volume-controller/index.js</string>
+    <string>6336</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>
@@ -44,4 +45,4 @@ Usage of the Mac's LaunchAgent is recommended to keep the NodeJS server running.
 </plist>
 ```
 
-With every reboot or new login the NodeJS server will start the `neeo-mac-volume-controller` application on port 6336. Increment the port number if you have other NEOO modules running.
+With every reboot or new login the NodeJS server will start the `neeo-osx-volume-controller` application on port 6336. Increment the port number if you have other NEOO modules running.
