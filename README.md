@@ -37,7 +37,7 @@ Usage of the Mac's LaunchAgent is recommended to keep the NodeJS server running.
 	<array>
 		<string>/usr/local/bin/node</string>
 		<string>/usr/local/lib/node_modules/neeo-osx-volume-controller/index.js</string>
-    <string>6336</string>
+    		<string>6336</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>
@@ -45,4 +45,4 @@ Usage of the Mac's LaunchAgent is recommended to keep the NodeJS server running.
 </plist>
 ```
 
-With every reboot or new login the NodeJS server will start the `neeo-osx-volume-controller` application on port 6336. Increment the port number if you have other NEOO modules running.
+With every reboot or new login the NodeJS server will start the `neeo-osx-volume-controller` application on port 6336. Increment the port number if you have other NEEO modules running.
