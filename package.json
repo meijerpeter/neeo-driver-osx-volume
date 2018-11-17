@@ -1,6 +1,6 @@
 {
   "name": "neeo-driver-osx-volume",
-  "version": "1.1",
+  "version": "1.1.0",
   "description": "Controls the volume of your Mac with the NEEO remote",
   "main": "index.js",
   "repository": {
