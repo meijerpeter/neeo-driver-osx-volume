@@ -1,30 +1,33 @@
 # NEEO's Mac Volume Controller
-Controls the volume of an Apple Mac via the NEEO remote controller
+Controls the volume of an Apple Mac via the NEEO remote controller.
 
 ## Setup
 
-1. Install NodeJS
+1. Follow the instruction of the @neeo/cli module: https://github.com/NEEOInc/neeo-sdk-toolkit/tree/master/cli
+
 2. Open Terminal and then:
 
-`npm install -g meijerpeter/neeo-osx-volume-controller`
+`npm install neeo-driver-osx-volume`
 
-This installs the NodeJS module globally in `/usr/local/lib/node_modules/neeo-osx-volume-controller/` on your Mac.
+This installs the NodeJS module on your Mac.
 
 3. To run the application, type:
 
-`npm run start`
+`npx neeo-cli start`
 
-or:
-
-`node /usr/local/lib/node_modules/neeo-osx-volume-controller/index.js 6336`
-
-or:
-
-`node neeo-osx-volume-controller 6336`
 
 ### Installation
 
-Usage of the Mac's LaunchAgent is recommended to keep the NodeJS server running. Create the following file in a text editor of choice and place it in `~/Library/LaunchAgents` and name it: `com.meijerpeter.neeovolumecontroller.plist`.
+1. Create a file in the root of the neeo-server with execution rights (chmod +x filename) with the following:
+
+```
+#!/bin/bash
+
+cd /usr/local/lib
+npx neeo-cli start
+```
+
+2. Usage of the Mac's LaunchAgent is recommended to keep the NodeJS server running. Create the following file in a text editor of choice and place it in `~/Library/LaunchAgents` and name it: `com.neeo.server.plist`.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -32,12 +35,10 @@ Usage of the Mac's LaunchAgent is recommended to keep the NodeJS server running.
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>com.meijerpeter.neeomacvolumecontroller</string>
+	<string>com.neeo.server</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/bin/node</string>
-		<string>/usr/local/lib/node_modules/neeo-osx-volume-controller/index.js</string>
-    		<string>6336</string>
+		<string>/usr/local/lib/neeo-server/neeo-server-startup</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>
@@ -45,4 +46,4 @@ Usage of the Mac's LaunchAgent is recommended to keep the NodeJS server running.
 </plist>
 ```
 
-With every reboot or new login the NodeJS server will start the `neeo-osx-volume-controller` application on port 6336. Increment the port number if you have other NEEO modules running.
+With every reboot or new login the NodeJS server will start the drivers in the neeo-server directory.

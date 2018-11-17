@@ -1,0 +1,24 @@
+{
+  "name": "neeo-driver-osx-volume",
+  "version": "1.1",
+  "description": "Controls the volume of your Mac with the NEEO remote",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meijerpeter/neeo-driver-osx-volume"
+  },
+  "author": "Peter Meijer <meijerpeter@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meijerpeter/neeo-driver-osx-volume/issues"
+  },
+  "dependencies": {
+    "applescript": "^1.0.0",
+    "neeo-sdk": "*"
+  },
+  "keywords": [
+    "neeo",
+    "neeo-driver",
+    "osx volume"
+  ]
+}
